@@ -213,6 +213,13 @@ if (urlParams.fields) {
   });
 }
 
+/* JH additionsl */
+
+if ( urlParams.iframe && (urlParams.iframe == 'true') || urlParams.embed && (urlParams.embed == 'true') ){
+  $(".navbar-header").addClass("hidden"); 
+  //$(".full-extent").addClass("hidden");
+}
+
 if (urlParams.cluster && (urlParams.cluster === "false" || urlParams.cluster === "False" || urlParams.cluster === "0")) {
   cluster = false;
 } else {
@@ -222,6 +229,24 @@ if (urlParams.cluster && (urlParams.cluster === "false" || urlParams.cluster ===
 if (urlParams.attribution) {
   var attribution = decodeURI(urlParams.attribution);
   map.attributionControl.setPrefix(attribution);
+}
+
+/* JH */
+var fitToBbox;
+if ( urlParams.src && (urlParams.src.includes("bbox")) ) {
+  var bbox = urlParams.src;
+  bbox = decodeURIComponent(decodeURI(bbox)).match(/bbox\((.*?)\)/i)[1];
+  var geocodes = bbox.split(",");
+
+  map.fitBounds([[
+    geocodes[1],geocodes[0]
+    ], [
+    geocodes[3],geocodes[2]
+  ]]);
+
+  var bboxBounds = [[ geocodes[1],geocodes[0]], [geocodes[3], geocodes[2]]];
+  L.rectangle(bboxBounds, {color: "#ff7800", weight: 1}).addTo(map);
+  map.fitBounds(bboxBounds);
 }
 
 if (cluster === true) {
@@ -234,7 +259,7 @@ if (cluster === true) {
 
 $("#refresh-btn").click(function() {
   fetchData();
-  $(".navbar-collapse.in").collapse("hide");
+  //$(".navbar-collapse.in").collapse("hide");
   return false;
 });
 
@@ -248,7 +273,8 @@ $("#auto-refresh").click(function() {
 });
 
 $("#full-extent-btn").click(function() {
-  map.fitBounds(featureLayer.getBounds());
+  
+map.fitBounds(featureLayer.getBounds());
   $(".navbar-collapse.in").collapse("hide");
   return false;
 });
@@ -278,6 +304,7 @@ $("#sidebar-hide-btn").click(function() {
 $(document).ready(function() {
   fetchData();
   $("#download").attr("href", urlParams.src);
+  $("#sidebar").hide();
 });
 
 $(document).on("click", ".feature-row", function(e) {
