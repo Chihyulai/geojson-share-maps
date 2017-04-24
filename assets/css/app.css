@@ -5,11 +5,14 @@ html, body, #container {
 }
 body {
   padding-top: 50px;
+  padding-bottom: 0;
 }
+
 input[type="radio"], input[type="checkbox"] {
   margin: 0;
 }
-#sidebar {
+#sidebar { 
+  margin-top: -12px; 
   width: 250px;
   height: 100%;
   max-width: 100%;
@@ -18,13 +21,21 @@ input[type="radio"], input[type="checkbox"] {
     -moz-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
 }
-#map {
-  width: auto;
-  height: 100%;
+#map { 
+  top: -12px;
+  width: 100%;  /* dist: auto */
+  height: 101%;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 #loading {
   background-color: rgba(0, 0, 0, 0.5);
+}
+.container-top { /* added JH */
+  position: absolute;
+  top: 34px;
+}
+.custom-nav .navbar.navbar-fixed-top .navbar-inner{
+    background: rgba(255, 255, 255, 0.3);
 }
 .loading-indicator {
   position: absolute;
@@ -88,9 +99,14 @@ input[type="radio"], input[type="checkbox"] {
 .table {
   margin-bottom: 0px;
 }
+/* JH */
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .navbar .navbar-brand {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px; /* dist: 24px */
   color: #FFFFFF;
 }
 .navbar-brand img {
@@ -103,8 +119,8 @@ input[type="radio"], input[type="checkbox"] {
   margin-right: 15px;
 }
 .navbar-header .navbar-icon {
-  line-height: 50px;
-  height: 50px;
+  line-height: 38px;
+  height: 38px;
 }
 .navbar-header a.navbar-icon {
   margin-left: 22px;
@@ -152,3 +168,4 @@ input[type="radio"], input[type="checkbox"] {
   border-color: rgba(0,0,0,.4);
   background-clip: padding-box;
 }
+
