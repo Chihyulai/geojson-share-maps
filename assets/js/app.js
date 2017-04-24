@@ -220,6 +220,13 @@ if (urlParams.iframe && (urlParams.iframe == 'true') || urlParams.embed && (urlP
     $(".full-extent").addClass("hidden");
 }
 
+/* JH additionsl */
+
+if ( urlParams.iframe && (urlParams.iframe == 'true') || urlParams.embed && (urlParams.embed == 'true') ){
+  $(".navbar-header").addClass("hidden"); 
+  //$(".full-extent").addClass("hidden");
+}
+
 if (urlParams.cluster && (urlParams.cluster === "false" || urlParams.cluster === "False" || urlParams.cluster === "0")) {
     cluster = false;
 } else {
@@ -249,6 +256,24 @@ if (urlParams.src && (urlParams.src.includes("bbox"))) {
     map.fitBounds(bboxBounds);
 }
 
+/* JH */
+var fitToBbox;
+if ( urlParams.src && (urlParams.src.includes("bbox")) ) {
+  var bbox = urlParams.src;
+  bbox = decodeURIComponent(decodeURI(bbox)).match(/bbox\((.*?)\)/i)[1];
+  var geocodes = bbox.split(",");
+
+  map.fitBounds([[
+    geocodes[1],geocodes[0]
+    ], [
+    geocodes[3],geocodes[2]
+  ]]);
+
+  var bboxBounds = [[ geocodes[1],geocodes[0]], [geocodes[3], geocodes[2]]];
+  L.rectangle(bboxBounds, {color: "#ff7800", weight: 1}).addTo(map);
+  map.fitBounds(bboxBounds);
+}
+
 if (cluster === true) {
     map.addLayer(markerClusters);
     layerControl.addOverlay(markerClusters, "<span name='title'>GeoJSON Data</span>");
@@ -257,10 +282,17 @@ if (cluster === true) {
     layerControl.addOverlay(featureLayer, "<span name='title'>GeoJSON Data</span>");
 }
 
+<<<<<<< HEAD
 $("#refresh-btn").click(function () {
     fetchData();
     //$(".navbar-collapse.in").collapse("hide");
     return false;
+=======
+$("#refresh-btn").click(function() {
+  fetchData();
+  //$(".navbar-collapse.in").collapse("hide");
+  return false;
+>>>>>>> origin/master
 });
 
 $("#auto-refresh").click(function () {
@@ -272,10 +304,18 @@ $("#auto-refresh").click(function () {
     }
 });
 
+<<<<<<< HEAD
 $("#full-extent-btn").click(function () {
     map.fitBounds(featureLayer.getBounds());
     $(".navbar-collapse.in").collapse("hide");
     return false;
+=======
+$("#full-extent-btn").click(function() {
+  
+map.fitBounds(featureLayer.getBounds());
+  $(".navbar-collapse.in").collapse("hide");
+  return false;
+>>>>>>> origin/master
 });
 
 $("#list-btn").click(function () {
@@ -300,10 +340,17 @@ $("#sidebar-hide-btn").click(function () {
     map.invalidateSize();
 });
 
+<<<<<<< HEAD
 $(document).ready(function () {
     fetchData();
     $("#download").attr("href", urlParams.src);
     $("#sidebar").hide();
+=======
+$(document).ready(function() {
+  fetchData();
+  $("#download").attr("href", urlParams.src);
+  $("#sidebar").hide();
+>>>>>>> origin/master
 });
 
 $(document).on("click", ".feature-row", function (e) {

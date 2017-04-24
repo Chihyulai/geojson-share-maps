@@ -23,7 +23,11 @@ input[type="radio"], input[type="checkbox"] {
 }
 #map { 
   top: -12px;
+<<<<<<< HEAD
   width: 100%;  /* dist: auto */
+=======
+  width: auto;
+>>>>>>> origin/master
   height: 101%;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
