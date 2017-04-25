@@ -2,48 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-          <meta name="mobile-web-app-capable" content="yes">
-            <meta name="apple-mobile-web-app-capable" content="yes">
-              <meta name="description" content="A responsive web mapping application for viewing GeoJSON files">
-                <meta name="author" content="Bryan McBride">
-                  <title name="title">UCD Digital Library &#8226; GeoJSON Mapper</title>
-                  
-                  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-                      <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css">
-                        <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
-                          <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
-                            <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css">
-                              <link rel="stylesheet" href="assets/css/app.css">
-                                
-                                <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon-76.png">
-                                  <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon-120.png">
-                                    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon-152.png">
-                                      <link rel="icon" sizes="196x196" href="assets/img/favicon-196.png">
-                                        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="A responsive web mapping application for viewing GeoJSON files">
+    <meta name="author" content="Bryan McBride">
+    <title name="title">UCD Digital Library &#8226; GeoJSON Mapper</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css">
+    <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
+    <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon-152.png">
+    <link rel="icon" sizes="196x196" href="assets/img/favicon-196.png">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
   </head>
-  
+
   <body>
     <div style="width: 100%; position: absolute; top: 0; height:38px; background-color: #000; opacity: 1.0">
-      <div class="navbar navbar-inverse navbar-collapse collapse" style="position:absolute; top: 0;">
-        <ul class="nav navbar-nav">
-          <li><a id="refresh-btn" href="#"><i class="fa fa-refresh white"></i>&nbsp;&nbsp;Refresh</a></li>
-          <li><a id="full-extent-btn" href="#"><i class="fa fa-arrows-alt white"></i>&nbsp;&nbsp;Full Extent</a></li>
-          <li><a href="" id="download" download="" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-cloud-download white"></i>&nbsp;&nbsp;Download Data</a></li>
-          <li class="btn-search hidden-xs"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="fa fa-list-alt white"></i>&nbsp;&nbsp;Result list</a></li>
-        </ul>
-      </div>
+      <div class="navbar-inverse navbar-collapse collapse" style="position:absolute; top: 0; height:38px!important;">
+        <div class="navbar-header" style="margin-top: -7px;">
+          <div class="navbar-icon-container">
+            <a href="#" class="navbar-icon pull-right visible-xs" id="nav-btn"><i class="fa fa-bars fa-lg white"></i></a>
+            <a href="#" class="navbar-icon pull-right visible-xs" id="sidebar-toggle-btn"><i class="fa fa-search fa-lg white"></i></a>
+          </div>
+          <span class="navbar-brand" href="#" name="title" id="navbar-title">UCD Digital Library</span>
+        </div>
+          <ul class="nav navbar-nav">
+            <li><a id="refresh-btn" href="#"><i class="fa fa-refresh white"></i>&nbsp;&nbsp;Refresh</a></li>
+            <li><a id="full-extent-btn" href="#"><i class="fa fa-arrows-alt white"></i>&nbsp;&nbsp;Full Extent</a></li>
+            <li><a href="" id="download" download="" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-cloud-download white"></i>&nbsp;&nbsp;Download Data</a></li>
+            <li class="btn-search hidden-xs"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="fa fa-list-alt white"></i>&nbsp;&nbsp;Result list</a></li>
+          </ul>
+        </div>
     </div
-    
+
     <div id="container" class="container-top">
       <div id="sidebar">
         <div class="sidebar-wrapper">
           <div class="panel panel-default" id="features">
             <div class="panel-heading">
               <h3 class="panel-title">Features
-                <button type="button" class="btn btn-xs btn-default pull-right" id="sidebar-hide-btn"><i class="fa fa-chevron-left"></i></button></h3>
+              <button type="button" class="btn btn-xs btn-default pull-right" id="sidebar-hide-btn"><i class="fa fa-chevron-left"></i></button></h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -60,13 +67,13 @@
                 <thead class="hidden">
                   <tr>
                     <th>Icon</th>
-                    <tr>
-                      <tr>
-                        <th>Name</th>
-                        <tr>
-                          <tr>
-                            <th>Chevron</th>
-                            <tr>
+                  <tr>
+                  <tr>
+                    <th>Name</th>
+                  <tr>
+                  <tr>
+                    <th>Chevron</th>
+                  <tr>
                 </thead>
                 <tbody class="list"></tbody>
               </table>
@@ -83,7 +90,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -134,3 +141,4 @@
     <script src="assets/js/app.js"></script>
   </body>
 </html>
+
