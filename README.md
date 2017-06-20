@@ -1,6 +1,8 @@
 geojson-share-maps
 ===========
 
+Forked from @bmcbride [https://github.com/bmcbride/geojson-share-maps](https://github.com/bmcbride/geojson-share-maps) for use with IIIF-GeoJSON-maps plugin for the Mirador image viewer.
+
 A responsive web mapping utility for viewing and sharing [GeoJSON](http://geojson.org/) files. Designed to be an incredibly simple and lightweight tool for quickly standing up a basic mapping application without having to write any code. Maps can be shared, embedded, and added to your mobile homescreen. Use [geojson.io](http://geojson.io/) or any other modern mapping tool to generate your GeoJSON, place it on a web server, push it to [GitHub](https://github.com/), or save it as a [Gist](https://gist.github.com/) and quickly wrap it up as a responsive web app.
 
 ### Features:
@@ -20,6 +22,8 @@ A responsive web mapping utility for viewing and sharing [GeoJSON](http://geojso
 - [Football Clubs of Europe](http://bmcbride.github.io/geojson-share-maps/?src=https://web.fulcrumapp.com/shares/82982e4c55707a34.geojson&fields=name,full_name,ground,league,city,state_province,country,photo&title=Football%20Clubs%20of%20Europe&title_field=name&attribution=Courtesy%20of%20Coleman%20McCormick&cluster=true) A Fulcrum mapping project from [Coleman McCormick](https://github.com/colemanm/)
 - [NYC Coffee Shops](http://bmcbride.github.io/geojson-share-maps/?src=http://api.tiles.mapbox.com/v3/mapbox.o11ipb8h/markers.geojson&fields=name,description&title=NYC%20Coffee%20Shops&title_field=name&attribution=Courtesy%20of%20Mapbox&cluster=false) via [Mapbox](https://www.mapbox.com/blog/open-web-geojson/)
 - [Baseball Parks](http://bmcbride.github.io/geojson-share-maps/?src=https://raw.githubusercontent.com/cageyjames/GeoJSON-Ballparks/master/ballparks.geojson&fields=Class,League,Team,Ballpark&title=GeoJSON%20Ballparks&title_field=Ballpark&cluster=false&attribution=https://github.com/cageyjames/GeoJSON-Ballparks) A GeoJSON Ballpark mapping project from [James Fee](https://github.com/cageyjames/GeoJSON-Ballparks)
+- [Bounding box for georectified map](https://jbhoward-dublin.github.io/geojson-share-map/?src=https%3A%2F%2Fdata.ucd.ie%2Fapi%2Fgeo%2Fv1%2Fdl%2FgeoFilter%3Dbbox(-6.269730311044%2C53.334592993114%2C-6.255084003975%2C53.340369960211)%26format%3Dgeojson&title_field=title&title=City%20of%20Dublin&title_field=title&title=City%20of%20Dublin&fields=url,place,date,pid,place,category,theme,geonamesreference,license&cluster=true&logo=https://digital.ucd.ie/images/logos/ucd_logo_sm.png&attribution=UCD%20Library,%20University%20College%20Dublin&iframe=true) (UCD Digital Library)
+- [Single site location in Dublin, Ireland](https://jbhoward-dublin.github.io/geojson-share-map/?src=https%3A%2F%2Fdata.ucd.ie%2Fapi%2Fgeo%2Fv1%2Fdl%2FgeoFilter%3Did(ivrla%3A34717)%26format%3Dgeojson&title_field=title&title=80%20Saint%20Stephen%27s%20Green,%20Dublin%202,%20Co.%20Dublin,%20Ireland&cluster=true&iframe=true) UCD Digital Library
 
 ### URL Parameters:
 
